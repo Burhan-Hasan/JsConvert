@@ -58,17 +58,20 @@ var Convert;
 
         splittedDate = dateString.split(separate);
         splittedFormat = format.split(separate);
-
         var dt = {};
         dt.year = +splittedDate[splittedFormat.indexOf('yyyy')];
+        if (isNaN(dt.year))
+            dt.year = convertShortYearToFull(+splittedDate[splittedFormat.indexOf('yy')]);
         dt.month = +(splittedDate[splittedFormat.indexOf('MM')] - 1);
         dt.day = +splittedDate[splittedFormat.indexOf('dd')];
         return dt;
     }
+
     function getStringFromDateSegments(dateSegments, format)
     {
         return format.replace(/dd/, dateSegments.day).replace(/MM/, dateSegments.month).replace(/yyyy/, dateSegments.year);
     }
+
     function validateDate(date)
     {
         if (
@@ -78,6 +81,7 @@ var Convert;
             return true;
         return false;
     }
+
     function getSeperators(format)
     {
         var allSeperators = {};
@@ -89,4 +93,19 @@ var Convert;
         }
         return Object.values(allSeperators);
     }
+
+    function convertShortYearToFull(year)
+    {
+        if (year.toString().length > 2) return;
+        year = +year;
+
+        var prefix = "";
+        if (year > 88 && year <= 99)
+            prefix = "19";
+        else
+            prefix = "20";
+
+        return +(prefix + ('0'+year).slice(-2));
+    }
+
 })(Convert || (Convert = {}));
