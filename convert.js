@@ -45,10 +45,8 @@ var Convert;
             splittedDate = null;
 
         var separate = null;
-        if (~dateString.indexOf('-'))
-            separate = '-'
-        else if (~dateString.indexOf('.'))
-            separate = '.'
+        if (~dateString.indexOf('-')) separate = '-'
+        else if (~dateString.indexOf('.'))  separate = '.'
 
         splittedDate = dateString.split(separate);
         splittedFormat = format.split(separate);
