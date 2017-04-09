@@ -1,9 +1,3 @@
-/*
- * FORMATS
- * dd.MM.yyyy
- * dd-MM-yyyy
- */
-
 var Convert;
 (function (Convert)
 {
