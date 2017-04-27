@@ -51,6 +51,10 @@ var DateHelper;
         return tmpDate;
     }
 
+    DateHelper.GetLastDayOfMonth = function (month, year) {
+        Convert.ToDateTime('00.0' + month + '.' + year, 'dd.MM.yyyy').getDate();
+    }
+
     function dayOfYear(d) {
         var start = new Date(d.getFullYear(), 0, 0);
         var diff = d - start;
