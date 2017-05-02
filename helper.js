@@ -52,7 +52,7 @@ var DateHelper;
     }
 
     DateHelper.GetLastDayOfMonth = function (month, year) {
-        Convert.ToDateTime('00.0' + month + '.' + year, 'dd.MM.yyyy').getDate();
+        Convert.ToDateTime('00.0' + (month + 1) + '.' + year, 'dd.MM.yyyy').getDate();
     }
 
     function dayOfYear(d) {
