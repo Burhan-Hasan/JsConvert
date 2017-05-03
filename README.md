@@ -1,2 +1,1 @@
-# JsConvert
-IT ST is
+Light library for working with Dates
